@@ -3,10 +3,5 @@ repos=(data-list el-select-area upload-to-ali el-data-table el-semver-input img-
 
 for i in ${repos[@]}
 do
-  cd $i
-	git pull
-	git co master
-	git merge dev
-	git ps
-	git co dev
+  (./git-push.sh $i &)
 done
