@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 dir=$1
-echo "to push dir: $dir"
+echo "--------------- to push dir: $dir ---------------"
 cd $dir
 git co dev
 git pull
