@@ -3,5 +3,5 @@ repos=(data-list el-select-area upload-to-ali el-data-table el-semver-input img-
 
 for i in ${repos[@]}
 do
-  (./git-push.sh $i &)
+  ./git-update.sh $i
 done
