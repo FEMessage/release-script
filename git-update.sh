@@ -7,6 +7,6 @@ git co dev
 git pull
 git co master
 git pull
-git merge dev
+git merge dev -m "Merge branch 'dev'"
 git ps
 git co dev
