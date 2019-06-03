@@ -15,7 +15,7 @@ do
   url="https://api.github.com/repos/FEMessage/$i/releases/latest"
   if [ "$i" == "nuxt-element-dashboard" ]
   then
-		# pc端框架仓库地址在另一个地方
+    # pc端框架仓库地址在另一个地方
     url="https://api.github.com/repos/levy9527/nuxt-element-dashboard/releases/latest"
   fi
   curl $url > $resp_tmp_file
