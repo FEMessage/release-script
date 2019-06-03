@@ -17,7 +17,8 @@ do
   curl $url > $resp_tmp_file
   html_url=`cat $resp_tmp_file | sed -n 5p | sed 's/\"html_url\"://g' | awk -F '"' '{print $2}'`
   body=`cat $resp_tmp_file | grep body | sed 's/\"body\"://g;s/\"//g'`
-	echo "#[$html_url]($html_url)" >> $release_file
+	title=`echo $html_url | cut -d '/' -f 5`
+	echo "#[$title]($html_url)" >> $release_file
 	echo $body >> $release_file
 done
 
@@ -27,7 +28,9 @@ url="https://api.github.com/repos/levy9527/nuxt-element-dashboard/releases/lates
 curl $url > $resp_tmp_file
 html_url=`cat $resp_tmp_file | sed -n 5p | sed 's/\"html_url\"://g' | awk -F '"' '{print $2}'`
 body=`cat $resp_tmp_file | grep body | sed 's/\"body\"://g;s/\"//g'`
-rm $resp_tmp_file
+title=`echo $html_url | cut -d '/' -f 5`
 
-echo "#[$html_url]($html_url)" >> $release_file
+echo "#[$title]($html_url)" >> $release_file
 echo $body >> $release_file
+
+rm $resp_tmp_file
