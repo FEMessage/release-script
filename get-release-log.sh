@@ -17,7 +17,7 @@ do
   curl $url > $resp_tmp_file
   html_url=`cat $resp_tmp_file | sed -n 5p | sed 's/\"html_url\"://g' | awk -F '"' '{print $2}'`
   body=`cat $resp_tmp_file | grep body | sed 's/\"body\"://g;s/\"//g'`
-	echo $html_url >> $release_file
+	echo "#[$html_url]($html_url)" >> $release_file
 	echo $body >> $release_file
 done
 
@@ -29,5 +29,5 @@ html_url=`cat $resp_tmp_file | sed -n 5p | sed 's/\"html_url\"://g' | awk -F '"'
 body=`cat $resp_tmp_file | grep body | sed 's/\"body\"://g;s/\"//g'`
 rm $resp_tmp_file
 
-echo $html_url >> $release_file
+echo "#[$html_url]($html_url)" >> $release_file
 echo $body >> $release_file
