@@ -19,7 +19,7 @@ cd local repo directory add merge dev into master, then push to remote repo, whi
 ./get-release-log.sh
 ```
 
-generate **all** repos defined in `repos.sh` github release notes into a md file. 
+generate **all** repos defined in `repos.sh` last 7 days github release notes into a md file. 
 
 ```sh
 ./get-release-log.sh el-data-table vue-sfc-cli

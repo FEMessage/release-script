@@ -5,6 +5,7 @@ source ./repos.sh
 resp_tmp_file=resp.tmp
 
 date=`date +%Y-%m-%d`
+# https://unix.stackexchange.com/questions/361758/subtract-7-days-from-todays-date/361762#361762?newreg=65b9567ce86b47d490429859c8bd9bcb
 last_week=$(date -v-7d "+%Y-%m-%d")
 release_file="release.$date.md"
 
@@ -17,7 +18,6 @@ do
   curl $url > $resp_tmp_file
 	
   published_at=$(grep published_at $resp_tmp_file | sed 's/\"published_at\"://g' | awk -F '"' '{print $2}' | cut -d 'T' -f 1)
-  # https://unix.stackexchange.com/questions/361758/subtract-7-days-from-todays-date/361762#361762?newreg=65b9567ce86b47d490429859c8bd9bcb
   
   # https://stackoverflow.com/questions/27429653/date-comparison-in-bash
   if [[ $published_at > $last_week || $published_at == $last_week ]]
