@@ -5,9 +5,9 @@ echo "--------------- to push dir: $dir ---------------"
 cd $dir
 git stash save
 git checkout dev
-git pull
+git pull origin dev
 git checkout master
-git pull
+git pull origin master
 git merge dev -m "Merge branch 'dev'"
-git push
+git push --set-upstream origin master
 git checkout dev
